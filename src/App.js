@@ -5,8 +5,8 @@ import BreweryList from './BreweryList';
 import CreateBrewery from './CreateBrewery';
 import EditBrewery from './EditBrewery'
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/"
-const url = 'http://localhost:8080/'
+
+
 class App extends Component {
   constructor () {
     super ()
@@ -14,15 +14,7 @@ class App extends Component {
       beerData: []
     }
   }
-  componentDidMount(){
-    fetch (proxyurl + url)
-    .then(res => res.json())
-    .then(res => {
-      console.log(res)
-      this.setState({beerData: res})
-      console.log(this.state.countryData)
-    })
-  }
+
 
   render() {
     return (

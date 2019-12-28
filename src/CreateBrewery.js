@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 class CreateBrewery extends Component {
     constructor(props) {
@@ -72,6 +73,18 @@ onSubmit(evt) {
     console.log(`postal_code: ${this.state.postal_code}`)
     console.log(`phone: ${this.state.phone}`)
 
+    const newBrewery = {
+        name: this.state.name,
+        brewery_type: this.state.brewery_type,
+        street: this.state.street,
+        city: this.state.city,
+        state: this.state.state,
+        postal_code: this.state.postal_code,
+        phone: this.state.phone
+    };
+
+    Axios.post('http://localhost:8080/breweries/add', newBrewery).then(res => console.log(res.data))
+
     this.setState({
         name: " ",
         brewery_type: " ",
@@ -85,9 +98,79 @@ onSubmit(evt) {
 
 render() {
     return (
-        <div>
-            <p>Create</p>
-        </div>
+        <div style={{marginTop: 10}}>
+        <h3>Add Brewery</h3>
+        <form onSubmit={this.onSubmit}>
+            
+            <div className="form-group"> 
+                <label>Name: </label>
+                <input  type="text"
+                        className="form-control"
+                        value={this.state.name}
+                        onChange={this.onChangeName}
+                        />
+            </div>
+            <div className="form-group">
+                <label>Brewery Type: </label>
+                <input 
+                        type="text" 
+                        className="form-control"
+                        value={this.state.brewery_type}
+                        onChange={this.onChangeBreweryType}
+                        />
+            </div>
+            <div className="form-group">
+                <label>Street: </label>
+                <input 
+                        type="text" 
+                        className="form-control"
+                        value={this.state.street}
+                        onChange={this.onChangeStreet}
+                        />
+            </div>
+            <div className="form-group">
+                <label>City: </label>
+                <input 
+                        type="text" 
+                        className="form-control"
+                        value={this.state.city}
+                        onChange={this.onChangeCity}
+                        />
+            </div>
+            <div className="form-group">
+                <label>State: </label>
+                <input 
+                        type="text" 
+                        className="form-control"
+                        value={this.state.state}
+                        onChange={this.onChangeState}
+                        />
+            </div>
+            <div className="form-group">
+                <label>Postal Code: </label>
+                <input 
+                        type="text" 
+                        className="form-control"
+                        value={this.state.postal_code}
+                        onChange={this.onChangePostalCode}
+                        />
+            </div>
+            <div className="form-group">
+                <label>Phone: </label>
+                <input 
+                        type="text" 
+                        className="form-control"
+                        value={this.state.phone}
+                        onChange={this.onChangePhone}
+                        />
+            </div>
+        
+
+            <div className="form-group">
+                <input type="submit" value="Add Brewery" className="btn btn-primary" />
+            </div>
+        </form>
+    </div>
     )
 }
 }
