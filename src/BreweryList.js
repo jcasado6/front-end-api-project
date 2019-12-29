@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import App from './App.js'
 
 
+const Beer = props => (
+    <tr>
+        <td>{props.beer.name}</td>
+        <td>{props.beer.brewery_type}</td>
+        <td>{props.beer.street}</td>
+        <td>{props.beer.city}</td>
+        <td>{props.beer.state}</td>
+        <td>{props.beer.postal_code}</td>
+        <td>{props.beer.phone}</td>
+        <td>
+            <Link to={"/edit/"+props.beer._id}>Edit</Link>
+        </td>
+    </tr>
+)
 
 
 class BreweryList extends Component {
@@ -18,23 +31,26 @@ class BreweryList extends Component {
     componentDidMount() {
         axios.get('http://localhost:8080/breweries/')
             .then(res => {
-                console.log(res)
-            })
-            .then(res => {
+                console.log(res.data[0])
                 this.setState({ beerData: res.data });
+                console.log(this.state)
             })
             .catch((error) => {
                 console.log(error);
-            }).then(beerData => { console.log(beerData) })
+            })
     }
 
 
-
+    beerList() {
+        return this.state.beerData.map(function(beer, i){
+            return <Beer beer={beer} key={i} />;
+        })
+    }
 
     render() {
-        let brewery = this.state.beerData.map(beer => {
-            return <App key={beer} />;
-        })
+        // let brewery = this.state.beerData.map(beer, i => {
+        //     return <Beer beerData={beer} key={i} />;
+        // })
 
         return (
             <div>
@@ -49,10 +65,11 @@ class BreweryList extends Component {
                             <th>State</th>
                             <th>Postal Code</th>
                             <th>Phone</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {brewery}
+                        {this.beerList()}
                     </tbody>
                 </table>
             </div>
