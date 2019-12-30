@@ -94,6 +94,7 @@ class EditBrewery extends Component {
         console.log(edit)
         axios.post('http://localhost:8080/breweries//update/' + this.props.match.params.id, edit)
             .then(res => console.log(res.data))
+        this.history.push('/');
 
     }
 
