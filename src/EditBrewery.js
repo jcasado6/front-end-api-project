@@ -107,19 +107,7 @@ class EditBrewery extends Component {
                         <label>Name: </label>
                         <input type="text"
                             className="form-control"
-                            value={this.state.name}
-                            onChange={this.onChangeName}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Brewery Type: </label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            value={this.state.brewery_type}
-                            onChange={this.onChangeBreweryType}
-                        />
-                    </div>
+                  
 
 
                     <br />
