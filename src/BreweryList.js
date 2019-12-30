@@ -13,7 +13,7 @@ const Beer = props => (
         <td>{props.beer.postal_code}</td>
         <td>{props.beer.phone}</td>
         <td>
-            <Link to={"/edit/"+props.beer._id}>Edit</Link>
+            <Link to={ "/edit/" + props.beer._id}>Edit</Link>
         </td>
     </tr>
 )
@@ -49,7 +49,7 @@ class BreweryList extends Component {
 
     render() {
         // let brewery = this.state.beerData.map(beer, i => {
-        //     return <Beer beerData={beer} key={i} />;
+        //     return <Beer beer={beer} key={i} />;
         // })
 
         return (
@@ -65,11 +65,12 @@ class BreweryList extends Component {
                             <th>State</th>
                             <th>Postal Code</th>
                             <th>Phone</th>
-                            <th>Action</th>
+                            <th>Update</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.beerList()}
+                        {/* {brewery} */}
                     </tbody>
                 </table>
             </div>
