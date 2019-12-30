@@ -122,50 +122,50 @@ class EditBrewery extends Component {
                     </div>
 
                     <div className="form-group">
-                <label>Street: </label>
-                <input 
-                        type="text" 
-                        className="form-control"
-                        value={this.state.street}
-                        onChange={this.onChangeStreet}
+                        <label>Street: </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={this.state.street}
+                            onChange={this.onChangeStreet}
                         />
-            </div>
-            <div className="form-group">
-                <label>City: </label>
-                <input 
-                        type="text" 
-                        className="form-control"
-                        value={this.state.city}
-                        onChange={this.onChangeCity}
+                    </div>
+                    <div className="form-group">
+                        <label>City: </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={this.state.city}
+                            onChange={this.onChangeCity}
                         />
-            </div>
-            <div className="form-group">
-                <label>State: </label>
-                <input 
-                        type="text" 
-                        className="form-control"
-                        value={this.state.state}
-                        onChange={this.onChangeState}
+                    </div>
+                    <div className="form-group">
+                        <label>State: </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={this.state.state}
+                            onChange={this.onChangeState}
                         />
-            </div>
-            <div className="form-group">
-                <label>Postal Code: </label>
-                <input 
-                        type="text" 
-                        className="form-control"
-                        value={this.state.postal_code}
-                        onChange={this.onChangePostalCode}
+                    </div>
+                    <div className="form-group">
+                        <label>Postal Code: </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={this.state.postal_code}
+                            onChange={this.onChangePostalCode}
                         />
-            </div>
-            <div className="form-group">
-                <label>Phone: </label>
-                <input 
-                        type="text" 
-                        className="form-control"
-                        value={this.state.phone}
-                        onChange={this.onChangePhone}
+                    </div>
+                    <div className="form-group">
+                        <label>Phone: </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={this.state.phone}
+                            onChange={this.onChangePhone}
                         />
-            </div>
+                    </div>
 
 
                     <br />
