@@ -31,7 +31,7 @@ class BreweryList extends Component {
     componentDidMount() {
         axios.get('http://localhost:8080/breweries/')
             .then(res => {
-                console.log(res.data[0])
+                
                 this.setState({ beerData: res.data });
                 console.log(this.state)
             })
@@ -43,7 +43,7 @@ class BreweryList extends Component {
 
     beerList() {
         return this.state.beerData.map(function(beer, i){
-            return <Beer beer={beer} key={i} />;
+            return <Beer beer={beer} key={i}/>
         })
     }
 

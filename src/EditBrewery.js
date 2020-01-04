@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 class EditBrewery extends Component {
     constructor(props) {
         super(props);
@@ -23,6 +24,8 @@ class EditBrewery extends Component {
         this.onChangePostalCode = this.onChangePostalCode.bind(this);
         this.onChangePhone = this.onChangePhone.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.deleteBrew = this.deleteBrew.bind(this);
+        this.refreshPage = this.refreshPage.bind(this);
     }
 
     componentDidMount() {
@@ -92,9 +95,30 @@ class EditBrewery extends Component {
             phone: this.state.phone
         }
         console.log(edit)
-        axios.post('http://localhost:8080/breweries//update/' + this.props.match.params.id, edit)
+        axios.post('http://localhost:8080/breweries/update/' + this.props.match.params.id, edit)
             .then(res => console.log(res.data))
-        this.props.history.push('/');
+        this.props.history.push('/breweries');
+    }
+
+    deleteBrew(evt) {
+        evt.preventDefault()
+        const destroy = {
+            name: this.state.name,
+            brewery_type: this.state.brewery_type,
+            street: this.state.street,
+            city: this.state.city,
+            state: this.state.state,
+            postal_code: this.state.postal_code,
+            phone: this.state.phone
+        }
+        console.log(destroy)
+        axios.delete('http://localhost:8080/breweries/' + this.props.match.params.id, destroy)
+            .then(res => console.log(res.data))
+        this.props.history.push('/breweries').then(this.refreshPage);
+    }
+
+    refreshPage() {
+        window.location.reload(false);
     }
 
     render() {
@@ -173,12 +197,17 @@ class EditBrewery extends Component {
                     <div className="form-group">
                         <input type="submit" value="Update Brewery" className="btn btn-primary" />
                     </div>
+
+                    <br />
+
+                    <div className="form-group">
+                        <input type="submit" value="Delete Brewery" className="btn btn-danger" onClick={(e) => { if (window.confirm('Are you sure you wish to delete this brewery?')) this.deleteBrew(e) }} />
+
+                    </div>
                 </form>
             </div>
         )
     }
 }
-
-
 
 export default EditBrewery

@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BreweryList from './BreweryList';
 import CreateBrewery from './CreateBrewery';
 import EditBrewery from './EditBrewery'
+import Home from './Home'
 
 
 
@@ -24,7 +25,7 @@ class App extends Component {
           <div className="collpase navbar-collapse">
             <ul className="navbar-nav mr-auto">
               <li className="navbar-item">
-                <Link to="/" className="nav-link text-white">Breweries</Link>
+                <Link to="/breweries" className="nav-link text-white">Breweries</Link>
               </li>
               <li className="navbar-item">
                 <Link to="/create" className="nav-link text-white">Create Brewery</Link>
@@ -33,7 +34,8 @@ class App extends Component {
           </div>
         </nav>
         <br />
-        <Route path="/" exact component={BreweryList} />
+        <Route path="/" exact component={Home} />
+        <Route path="/breweries" exact component={BreweryList} />
         <Route path="/edit/:id" component={EditBrewery} />
         <Route path="/create" component={CreateBrewery} />
       </div>
