@@ -114,7 +114,8 @@ class EditBrewery extends Component {
         console.log(destroy)
         axios.delete('http://localhost:8080/breweries/' + this.props.match.params.id, destroy)
             .then(res => console.log(res.data))
-        this.props.history.push('/breweries').then(this.refreshPage);
+        this.props.history.push('/breweries')
+        // .then(this.refreshPage);
     }
 
     refreshPage() {
@@ -201,7 +202,7 @@ class EditBrewery extends Component {
                     <br />
 
                     <div className="form-group">
-                        <input type="submit" value="Delete Brewery" className="btn btn-danger" onClick={(e) => { if (window.confirm('Are you sure you wish to delete this brewery?')) this.deleteBrew(e) }} />
+                        <input type="submit" value="Delete Brewery" className="btn btn-danger" onClick={(e) => { if (window.confirm('Are you sure you wish to delete this brewery?')) this.deleteBrew(e)}} on />
 
                     </div>
                 </form>

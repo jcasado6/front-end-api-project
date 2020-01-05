@@ -3,8 +3,9 @@ import { Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BreweryList from './BreweryList';
 import CreateBrewery from './CreateBrewery';
-import EditBrewery from './EditBrewery'
-import Home from './Home'
+import EditBrewery from './EditBrewery';
+import Home from './Home';
+import './App.css';
 
 
 
