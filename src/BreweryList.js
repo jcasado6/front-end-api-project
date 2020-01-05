@@ -20,8 +20,8 @@ const Beer = props => (
 
 
 class BreweryList extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             beerData: []
         }

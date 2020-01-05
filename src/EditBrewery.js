@@ -25,7 +25,7 @@ class EditBrewery extends Component {
         this.onChangePhone = this.onChangePhone.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.deleteBrew = this.deleteBrew.bind(this);
-        this.refreshPage = this.refreshPage.bind(this);
+        // this.refreshPage = this.refreshPage.bind(this);
     }
 
     componentDidMount() {
@@ -118,9 +118,9 @@ class EditBrewery extends Component {
         // .then(this.refreshPage);
     }
 
-    refreshPage() {
-        window.location.reload(false);
-    }
+    // refreshPage() {
+    //     window.location.reload(false);
+    // }
 
     render() {
         return (

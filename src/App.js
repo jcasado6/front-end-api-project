@@ -5,13 +5,14 @@ import BreweryList from './BreweryList';
 import CreateBrewery from './CreateBrewery';
 import EditBrewery from './EditBrewery';
 import Home from './Home';
+
 import './App.css';
 
 
 
 class App extends Component {
-  constructor () {
-    super ()
+  constructor (props) {
+    super (props)
     this.state = {
       beerData: []
     }
@@ -35,10 +36,10 @@ class App extends Component {
           </div>
         </nav>
         <br />
-        <Route path="/" exact component={Home} />
-        <Route path="/breweries" exact component={BreweryList} />
-        <Route path="/edit/:id" component={EditBrewery} />
-        <Route path="/create" component={CreateBrewery} />
+        <Route path="/" exact render={Home} />
+        <Route path="/breweries" exact render={BreweryList} />
+        <Route path="/edit/:id" render={EditBrewery} />
+        <Route path="/create" render={CreateBrewery} />
       </div>
     );
   }
