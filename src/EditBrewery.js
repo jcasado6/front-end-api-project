@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import URL from './db/URL'
 
 
 class EditBrewery extends Component {
@@ -26,11 +25,11 @@ class EditBrewery extends Component {
         this.onChangePhone = this.onChangePhone.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.deleteBrew = this.deleteBrew.bind(this);
-        // this.refreshPage = this.refreshPage.bind(this);
+        this.refreshPage = this.refreshPage.bind(this);
     }
 
     componentDidMount() {
-        axios.get(URL + this.props.match.params.id)
+        axios.get('http://localhost:8080/breweries/' + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     name: res.data.name,
@@ -96,7 +95,7 @@ class EditBrewery extends Component {
             phone: this.state.phone
         }
         console.log(edit)
-        axios.post('https://brewery-tracker-api.herokuapp.com/breweries/update/' + this.props.match.params.id, edit)
+        axios.post('http://localhost:8080/breweries/update/' + this.props.match.params.id, edit)
             .then(res => console.log(res.data))
         this.props.history.push('/breweries');
     }
@@ -113,15 +112,14 @@ class EditBrewery extends Component {
             phone: this.state.phone
         }
         console.log(destroy)
-        axios.delete('https://brewery-tracker-api.herokuapp.com/breweries/' + this.props.match.params.id, destroy)
+        axios.delete('http://localhost:8080/breweries/' + this.props.match.params.id, destroy)
             .then(res => console.log(res.data))
-        this.props.history.push('/breweries')
-        // .then(this.refreshPage);
+        this.props.history.push('/breweries').then(this.refreshPage);
     }
 
-    // refreshPage() {
-    //     window.location.reload(false);
-    // }
+    refreshPage() {
+        window.location.reload(false);
+    }
 
     render() {
         return (
@@ -203,7 +201,7 @@ class EditBrewery extends Component {
                     <br />
 
                     <div className="form-group">
-                        <input type="submit" value="Delete Brewery" className="btn btn-danger" onClick={(e) => { if (window.confirm('Are you sure you wish to delete this brewery?')) this.deleteBrew(e)}} on />
+                        <input type="submit" value="Delete Brewery" className="btn btn-danger" onClick={(e) => { if (window.confirm('Are you sure you wish to delete this brewery?')) this.deleteBrew(e) }} />
 
                     </div>
                 </form>
