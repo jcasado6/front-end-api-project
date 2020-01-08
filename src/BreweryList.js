@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import URL from './db/URL'
 
 
 const Beer = props => (
@@ -29,7 +30,7 @@ class BreweryList extends Component {
 
 
     componentDidMount() {
-        axios.get('http://localhost:8080/breweries/')
+        axios.get(URL)
             .then(res => {
                 
                 this.setState({ beerData: res.data });

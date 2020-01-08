@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import URL from './db/URL'
 
 
 class EditBrewery extends Component {
@@ -29,7 +30,7 @@ class EditBrewery extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/breweries/' + this.props.match.params.id)
+        axios.get(URL + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     name: res.data.name,
@@ -95,7 +96,7 @@ class EditBrewery extends Component {
             phone: this.state.phone
         }
         console.log(edit)
-        axios.post('http://localhost:8080/breweries/update/' + this.props.match.params.id, edit)
+        axios.post('https://brewery-tracker-api.herokuapp.com/breweries/update/' + this.props.match.params.id, edit)
             .then(res => console.log(res.data))
         this.props.history.push('/breweries');
     }
@@ -112,7 +113,7 @@ class EditBrewery extends Component {
             phone: this.state.phone
         }
         console.log(destroy)
-        axios.delete('http://localhost:8080/breweries/' + this.props.match.params.id, destroy)
+        axios.delete('https://brewery-tracker-api.herokuapp.com/breweries/' + this.props.match.params.id, destroy)
             .then(res => console.log(res.data))
         this.props.history.push('/breweries')
         // .then(this.refreshPage);

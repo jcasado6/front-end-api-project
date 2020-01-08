@@ -5,8 +5,8 @@ import BreweryList from './BreweryList';
 import CreateBrewery from './CreateBrewery';
 import EditBrewery from './EditBrewery';
 import Home from './Home';
-
 import './App.css';
+
 
 
 
@@ -36,10 +36,12 @@ class App extends Component {
           </div>
         </nav>
         <br />
-        <Route path="/" exact render={Home} />
-        <Route path="/breweries" exact render={BreweryList} />
-        <Route path="/edit/:id" render={EditBrewery} />
-        <Route path="/create" render={CreateBrewery} />
+        <Route exact
+          path="/"
+          component={Home}/>
+        <Route exact path="/breweries" render={routerProps => <BreweryList {...routerProps} />} />
+        <Route path="/edit/:id" render={routerProps => <EditBrewery {...routerProps} />} />
+        <Route path="/create" render={routerProps => <CreateBrewery {...routerProps} />} />
       </div>
     );
   }
