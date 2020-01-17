@@ -49,9 +49,7 @@ class BreweryList extends Component {
     }
 
     render() {
-        // let brewery = this.state.beerData.map(beer, i => {
-        //     return <Beer beer={beer} key={i} />;
-        // })
+    
 
         return (
             <div>
@@ -71,7 +69,6 @@ class BreweryList extends Component {
                     </thead>
                     <tbody>
                         {this.beerList()}
-                        {/* {brewery} */}
                     </tbody>
                 </table>
             </div>

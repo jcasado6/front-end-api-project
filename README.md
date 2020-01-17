@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# front-end-api-project
 
-## Available Scripts
+## Technologies Used
+* JavaScript
+* React.js
+* Bootstrap
+* REST API
+* MongoDB
+* Express 
+* Mongoose
+* Node.js
 
-In the project directory, you can run:
+## Description & Features
+This MERN, full-stack application was built in conjuction with my [brewery-tracker-api](https://github.com/jcasado6/api-project) as the back-end. The front-end, built with React.js, has full CRUD capability in order to track and store your favorite breweries.  
 
-### `yarn start`
+The back-end utilizes MongoDB as the database to store your respective brewery information. More details on the back-end can be found [here](https://github.com/jcasado6/api-project). The forms and tables were created and styled with bootstrap.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
+* You can visit the applications deployed url [here](https://brewery-tracker.netlify.com/) or...
+* Fork and clone the repository and open the code in your preferred text editor.
+* In your terminal or through your text editor's terminal, execute the command 
+###### `npm start` 
+* A new page in your browser will open and you can begin to interact with the application. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Goals
+In the future, I would like to improve this project by...
+* Creating a new component that can be clicked to view each individuals brewery's information
+* Implementing a user login page
+* Adding other features such as the brewery's location displayed on a map utilizing a map API, a column where the user can add their favorite beers from the respective brewery, and ranking system for beers and breweries. 
 
-### `yarn test`
+## Contribution Guidelines
+If you would like to contribute code, identify bugs, or propose improvements, please fork this repository and submit a pull request with your suggestions. Below are some links to help you get started:
+1. [Project's main repository](https://github.com/jcasado6/front-end-api-project)
+2. [Project's issue tracker](https://github.com/jcasado6/front-end-api-project/issues)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
