@@ -83,8 +83,7 @@ onSubmit(evt) {
         phone: this.state.phone
     };
 
-    Axios.post('http://localhost:8080/breweries/add', newBrewery).then(res => console.log(res.data))
-
+    Axios.post('https://brewery-tracker-api.herokuapp.com/breweries/add', newBrewery).then(res => console.log(res.data))
     this.setState({
         name: " ",
         brewery_type: " ",
@@ -94,6 +93,7 @@ onSubmit(evt) {
         postal_code: " ",
         phone: " "
     })
+    this.props.history.push('/breweries');
 }
 
 render() {

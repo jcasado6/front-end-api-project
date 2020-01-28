@@ -32,7 +32,6 @@ class BreweryList extends Component {
     componentDidMount() {
         axios.get(URL)
             .then(res => {
-                
                 this.setState({ beerData: res.data });
                 console.log(this.state)
             })

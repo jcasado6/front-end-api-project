@@ -25,11 +25,10 @@ class EditBrewery extends Component {
         this.onChangePhone = this.onChangePhone.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.deleteBrew = this.deleteBrew.bind(this);
-        this.refreshPage = this.refreshPage.bind(this);
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/breweries/' + this.props.match.params.id)
+        axios.get('https://brewery-tracker-api.herokuapp.com/breweries/' + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     name: res.data.name,
@@ -95,7 +94,7 @@ class EditBrewery extends Component {
             phone: this.state.phone
         }
         console.log(edit)
-        axios.post('http://localhost:8080/breweries/update/' + this.props.match.params.id, edit)
+        axios.post('https://brewery-tracker-api.herokuapp.com/breweries/update/' + this.props.match.params.id, edit)
             .then(res => console.log(res.data))
         this.props.history.push('/breweries');
     }
@@ -111,15 +110,12 @@ class EditBrewery extends Component {
             postal_code: this.state.postal_code,
             phone: this.state.phone
         }
-        console.log(destroy)
-        axios.delete('http://localhost:8080/breweries/' + this.props.match.params.id, destroy)
+        console.log(this.props.match.params.id)
+        axios.delete('https://brewery-tracker-api.herokuapp.com/breweries/delete/' + this.props.match.params.id, destroy)
             .then(res => console.log(res.data))
-        this.props.history.push('/breweries').then(this.refreshPage);
+        this.props.history.push('/breweries');
     }
 
-    refreshPage() {
-        window.location.reload(false);
-    }
 
     render() {
         return (
